@@ -7,8 +7,11 @@ It's pretty basic for now, but I'm already working in different layouts (like te
 
 ### Screenshots
 
-iPhone
-![Alt text](http://www.lineartpr.com/img/github/tiflexigrid_iphone.jpg)
+![iPhone](http://www.lineartpr.com/img/github/tiflexigrid_iphone.jpg)
+
+![iPad](http://www.lineartpr.com/img/github/tiflexigrid_ipad.jpg)
+
+![Android](http://www.lineartpr.com/img/github/tiflexigrid_android.jpg)
 
 
 ### How to use
@@ -60,13 +63,13 @@ $.fgWin.open();
 
 ### Methods
 
-createGrid(parameters) - creates a grid layout with the following parameters:
+**createGrid(parameters)** - creates a grid layout with the following parameters:
 * columns - number of columns
 * space - space between each element
 * data - array with objects (title and image)
 * width - Optional. Width to adjust the grid (especially in Android)
 
-clearGrid() - clears all the elements of the grid. 
+**clearGrid()** - clears all the elements of the grid. 
 
 ### Note for Android
 
@@ -101,6 +104,7 @@ Android requires some extra steps in order to make the widget work correctly.  T
 	},800);
 	
 });
+```
 
 To understand it better, please refer to the sample project included.
 
