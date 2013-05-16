@@ -1,0 +1,18 @@
+"#fgWin":{
+	backgroundColor:'#fff',
+	navBarHidden:true,
+	tabBarHidden:true,
+	layout:'vertical'
+},
+"#fgHeader":{
+	backgroundColor:'#555',
+	width:Ti.UI.FILL,
+	height:50
+},
+"#fgHeaderTitle":{
+	text:'TiFlexiGrid',
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+	color:'#fff',
+	font:{fontSize:18,fontWeight:'bold'}
+}

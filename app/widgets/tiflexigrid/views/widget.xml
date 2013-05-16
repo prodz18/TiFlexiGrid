@@ -1,0 +1,7 @@
+<Alloy>
+	<View id="fgMain">
+		<View id="fgWrapper">
+			<ScrollView id="fgScrollView"/>
+		</View>	
+	</View>
+</Alloy>

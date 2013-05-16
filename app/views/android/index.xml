@@ -1,0 +1,8 @@
+<Alloy>
+	<Window id="fgWin">
+		<View id="fgHeader">
+			<Label id="fgHeaderTitle">TiFlexiGrid</Label>
+		</View>
+		<Require type="widget" src="tiflexigrid" id="fg"/>
+	</Window>		
+</Alloy>

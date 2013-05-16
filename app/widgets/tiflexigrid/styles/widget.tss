@@ -1,0 +1,19 @@
+"#fgMain": {
+	backgroundColor: '#fff',
+	height: Ti.UI.FILL,
+	width: Ti.UI.FILL
+},
+"#fgWrapper":{
+	width:Ti.UI.FILL,
+	height:Ti.UI.FILL,
+	backgroundColor:'transparent'
+},
+"#fgScrollView":{
+	width: Ti.UI.FILL,
+	height:Ti.UI.FILL,
+	contentHeight: Ti.UI.SIZE,
+	contentWidth: Ti.UI.FILL,
+	layout:'horizontal',
+	backgroundColor:'transparent',
+	scrollType:'vertical'
+}
