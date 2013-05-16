@@ -1,9 +1,9 @@
 TiFlexiGrid 1.0
 ================================
 
-An Alloy Widget for creating flexible grid layouts in iOS and Android. It works on phones and tablets in any orientation. You can also set different grid layouts depending the orientations. Also, when you click one of the items, it will pop-up in a modal view.
+An Alloy Widget for creating flexible grid layouts in iOS and Android. It works on phones and tablets in any orientation. You can also set different grid layouts depending the orientations. Also, when you click one of the items, it will pop-up in a modal view. Please refer to the sample project to see it in action.
 
-It's pretty basic for now, but I'm already working in different layouts (like templates) and other uses. If anyone have some ideas o requests, please let me know at [prodriguez@lineartpr.com](mailto:prodriguez@lineartpr.com). 
+It's pretty basic for now, but I'm already working in different layouts (like templates), parameters, and other uses. If anyone have some ideas o requests, please let me know at [@pablorr18](http://twitter.com/pablorr18).
 
 ### Screenshots
 
@@ -34,7 +34,7 @@ Add the widget to a view (index.xml):
 </Alloy>
 ```
 
-Create an array with the data to show (title and image) and initialize the widget.
+Create an array with the data to show (title and image) and initialize the widget in the controller (index.js):
 
 ```javascript
 //SOME SAMPLE DATA
@@ -82,7 +82,7 @@ Android requires some extra steps in order to make the widget work correctly.  T
         <manifest android:versionCode="1" android:versionName="1.0">
         <supports-screens android:anyDensity="true"
             android:largeScreens="true" android:normalScreens="true"
-            android:smallScreens="false" android:xlargeScreens="false"/>
+            android:smallScreens="false" android:xlargeScreens="true"/>
         </manifest>
    </android>
 ```
@@ -108,8 +108,25 @@ Android requires some extra steps in order to make the widget work correctly.  T
 
 To understand it better, please refer to the sample project included.
 
-###About
-Created by Pablo Rodriguez Ruiz, [@pablorr18](http://twitter.com/pablorr18)
+###License
+The MIT License (MIT)
 
+Copyright (c) 2013 Pablo Rodriguez Ruiz, [@pablorr18](http://twitter.com/pablorr18) 
 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

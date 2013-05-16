@@ -40,7 +40,6 @@ function Controller() {
     _.extend($, $.__views);
     exports.createGrid = function(args) {
         var params = args || {};
-        Ti.API.info("Params es ---> " + JSON.stringify(params));
         var columns = params.columns || 4;
         var space = params.space || 5;
         var data = params.data || {};
@@ -184,6 +183,9 @@ function Controller() {
                 });
             });
         });
+    };
+    exports.clearGrid = function() {
+        $.fgScrollView.removeAllChildren();
     };
     _.extend($, exports);
 }

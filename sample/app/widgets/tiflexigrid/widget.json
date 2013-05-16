@@ -1,7 +1,7 @@
 {
 	"id": "tiflexigrid",
 	"name": "TiFlexyGrid",
-	"description" : "A very flexible grid for many purposes for iOS and Android. It works on handsets and tablets.",
+	"description" : "A very flexible grid layout for iOS and Android. It works on handsets and tablets in any orientation.",
 	"author": "Pablo Rodriguez Ruiz / Lineart Media Designs Inc.",
 	"version": "1.0",
 	"copyright":"Copyright (c) 2013 Lineart Media Designs Inc.",

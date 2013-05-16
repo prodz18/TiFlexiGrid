@@ -2,7 +2,8 @@
 	backgroundColor:'#fff',
 	navBarHidden:true,
 	tabBarHidden:true,
-	layout:'vertical'
+	layout:'vertical',
+	exitOnClose:true
 },
 "#fgHeader":{
 	backgroundColor:'#555',

@@ -1,3 +1,4 @@
+
 exports.createGrid = function(args){
 	var params = args || {};
 	//Ti.API.info('Params es ---> '+ JSON.stringify(params));
@@ -172,4 +173,8 @@ exports.openModal = function(url){
 		
 	});
 	
+};
+
+exports.clearGrid = function(){
+	$.fgScrollView.removeAllChildren();
 };

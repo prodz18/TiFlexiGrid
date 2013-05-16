@@ -20,12 +20,13 @@
  * 
  * The sample below shows all this process. Is a little bit tricky but it works.
  * If you don't want to separate the code for android, you can use this sample
- * for both iOS and Android and it'll work perfectly. 
+ * for both iOS and Android and it'll work (except the orientation changes. Need a little 
+ * 	more work). 
  */
 
 //SOME SAMPLE DATA
 var items = [
-	{title:'sample 1', image:'http://dummyimage.com/900x800/000000/fff.jpg'},
+	{title:'sample 1', image:'http://dummyimage.com/400x300/000000/fff.jpg'},
 	{title:'sample 2', image:'http://dummyimage.com/400x300/000000/fff.jpg'},
 	{title:'sample 3', image:'http://dummyimage.com/400x300/000000/fff.jpg'},
 	{title:'sample 4', image:'http://dummyimage.com/400x300/000000/fff.jpg'},
@@ -44,10 +45,42 @@ $.fgWin.addEventListener('open',function(e){
 			columns:3, 					//NUMBER OF COLUMNS. DEFAULT IS 4.
 			space:10, 					//SPACE BETWEEN EACH ELEMENT. DEFAULT IS 5.
 			data:items,					//ARRAY WITH THE DATA TO DISPLAY. SEE SAMPLE DATA ABOVE
-			width: $.fgWin.size.width	//OPTIONAL. SCREEN'S WIDTH TO ADJUST GRID. ONLY FOR ANDROID.
+			width: $.fgWin.size.width	//OPTIONAL. SCREEN'S WIDTH TO ADJUST GRID.
 		});
 	},800);
 	
+});
+
+
+// EXAMPLE OF HOW TO USE TIFLEXIGRID IN ANDROID
+// WITH DIFFERENT LAYOUTS IN ORIENTATION CHANGES
+Ti.Gesture.addEventListener('orientationchange', function(e){
+
+    var orientation = e.orientation;
+   
+	if (orientation < 1 || orientation > 4){
+    	return;
+    }
+	else if (orientation == 1){
+		$.fg.clearGrid();
+    	var params = {
+			columns:3,
+			space:10,
+			data: items,
+			width: $.fgWin.size.width
+		};
+		$.fg.createGrid(params);
+    }
+    else if (orientation == 2) {
+    	$.fg.clearGrid();
+    	var params = {
+			columns:5,
+			space:5,
+			data: items,
+			width: $.fgWin.size.width
+		};
+		$.fg.createGrid(params);
+    }	   
 });
 
 $.fgWin.open();

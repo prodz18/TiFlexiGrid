@@ -7,26 +7,30 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.021678 seconds on emulator to get ready
+[DEBUG] waited 0.023741 seconds on emulator to get ready
 [DEBUG] com.lineartpr.flexigrid installed? False
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/backbone.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/backbone.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/CFG.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/CFG.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/controllers/BaseController.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/controllers/BaseController.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/controllers/index.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/controllers/index.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/sync/localStorage.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/sync/localStorage.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/sync/properties.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/sync/properties.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/sync/sql.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/sync/sql.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/sync/util.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/sync/util.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/underscore.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/underscore.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/widget.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/widget.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/widgets/tiflexigrid/controllers/widget.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/widgets/tiflexigrid/controllers/widget.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy.js
-[TRACE] COPYING MODIFIED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/app.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/app.js
+[INFO] Detected change in tiapp.xml, or assets deleted. Forcing full re-build...
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/backbone.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/backbone.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/CFG.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/CFG.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/controllers/BaseController.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/controllers/BaseController.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/controllers/index.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/controllers/index.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/sync/localStorage.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/sync/localStorage.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/sync/properties.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/sync/properties.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/sync/sql.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/sync/sql.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/sync/util.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/sync/util.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/underscore.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/underscore.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/widget.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/widget.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy/widgets/tiflexigrid/controllers/widget.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy/widgets/tiflexigrid/controllers/widget.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/alloy.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/alloy.js
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/android/appicon.png => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/appicon.png
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/android/default.png => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/default.png
+[TRACE] COPYING CREATED FILE: /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/app.js => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/app.js
 [DEBUG] LiveView not enabled
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
+[DEBUG] app stylesheet => /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/ApplicationStylesheet.java
 [DEBUG] copying app icon: /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/appicon.png
 [DEBUG] generating theme.xml
 [DEBUG] found drawable-long-land-hdpi splash screen at /Users/pablorr18/Documents/Apps/TiFlexiGrid/Resources/android/images/res-long-land-hdpi/default.png
@@ -52,11 +56,12 @@ Logfile initialized
 [DEBUG] found splash screen at /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/assets/Resources/default.png
 [DEBUG] Added 'screenSize' to <activity android:configChanges> because targeted api level 16 is >= 13
 [TRACE] Writing out AndroidManifest.xml
+[DEBUG] adding /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/ApplicationStylesheet.java to javac build list
 [DEBUG] adding /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/R.java to javac build list
 [DEBUG] adding /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/TiflexigridActivity.java to javac build list
 [DEBUG] adding /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/TiflexigridAppInfo.java to javac build list
 [DEBUG] adding /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/TiflexigridApplication.java to javac build list
-[DEBUG] Building Java Sources: "/Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/R.java" "/Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/TiflexigridActivity.java" "/Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/TiflexigridAppInfo.java" "/Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/TiflexigridApplication.java"
+[DEBUG] Building Java Sources: "/Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/ApplicationStylesheet.java" "/Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/R.java" "/Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/TiflexigridActivity.java" "/Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/TiflexigridAppInfo.java" "/Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/gen/com/lineartpr/flexigrid/TiflexigridApplication.java"
 [INFO] Compiling Android Resources... This could take some time
 [DEBUG] Android classes.dex built
 [DEBUG] creating unsigned apk: /Users/pablorr18/Documents/Apps/TiFlexiGrid/build/android/bin/app-unsigned.apk
@@ -122,6 +127,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.020368 seconds on emulator to get ready
+[DEBUG] waited 0.022939 seconds on emulator to get ready
 [INFO] Installing application on device
 [INFO] Application installed. Launch from drawer on Home Screen

@@ -9,6 +9,7 @@ function Controller() {
         navBarHidden: true,
         tabBarHidden: true,
         layout: "vertical",
+        exitOnClose: true,
         id: "fgWin"
     });
     $.__views.fgWin && $.addTopLevelView($.__views.fgWin);
@@ -55,24 +56,47 @@ function Controller() {
         image: "http://www.lorempixel.com/400/300/"
     }, {
         title: "sample 6",
-        image: "http://www.lorempixel.com/400/300/"
+        image: "http://www.lorempixel.com/410/300/"
     }, {
         title: "sample 7",
-        image: "http://www.lorempixel.com/400/300/"
+        image: "http://www.lorempixel.com/500/300/"
     }, {
         title: "sample 8",
-        image: "http://www.lorempixel.com/400/300/"
+        image: "http://www.lorempixel.com/300/300/"
     }, {
         title: "sample 9",
-        image: "http://www.lorempixel.com/400/300/"
+        image: "http://www.lorempixel.com/450/320/"
     }, {
         title: "sample 10",
-        image: "http://www.lorempixel.com/400/300/"
+        image: "http://www.lorempixel.com/500/400/"
     } ];
     $.fg.createGrid({
         columns: 3,
         space: 10,
         data: items
+    });
+    Ti.Gesture.addEventListener("orientationchange", function(e) {
+        var orientation = e.orientation;
+        if (1 > orientation || orientation > 4) return;
+        if (1 == orientation || 2 == orientation) {
+            $.fg.clearGrid();
+            var params = {
+                columns: 3,
+                space: 10,
+                data: items,
+                width: $.fgWin.size.width
+            };
+            $.fg.createGrid(params);
+        } else if (3 == orientation || 4 == orientation) {
+            $.fg.clearGrid();
+            var params = {
+                columns: 4,
+                space: 5,
+                data: items,
+                width: $.fgWin.size.width
+            };
+            $.fg.createGrid(params);
+        }
     });
     $.fgWin.open();
     _.extend($, exports);
