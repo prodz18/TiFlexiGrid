@@ -1,12 +1,17 @@
 TiFlexiGrid 1.0
 ================================
 
-An Alloy Widget for creating flexible grid layouts in iOS and Android. It works on handsets and tablets in any orientation.
+An Alloy Widget for creating flexible grid layouts in iOS and Android. It works on phones and tablets in any orientation. You can also set different grid layouts depending the orientations. Also, when you click one of the items, it will pop-up in a modal view.
 
-## Screenshots
-Coming in a moment.
+It's pretty basic for now, but I'm already working in different layouts (like templates) and other uses. If anyone have some ideas o requests, please let me know at [prodriguez@lineartpr.com](mailto:prodriguez@lineartpr.com). 
 
-## How to use
+### Screenshots
+
+iPhone
+![Alt text](http://www.lineartpr.com/img/github/tiflexigrid_iphone.jpg)
+
+
+### How to use
 
 First, add the widget to the dependencies list in your Alloy Project (config.json):
 
@@ -52,7 +57,18 @@ $.fg.createGrid({
 
 $.fgWin.open();
 ```
-## Note for Android
+
+### Methods
+
+createGrid(parameters) - creates a grid layout with the following parameters:
+* columns - number of columns
+* space - space between each element
+* data - array with objects (title and image)
+* width - Optional. Width to adjust the grid (especially in Android)
+
+clearGrid() - clears all the elements of the grid. 
+
+### Note for Android
 
 Android requires some extra steps in order to make the widget work correctly.  The widget uses anydensity = true and system units as dp in the tiapp.xml. 
  
@@ -67,10 +83,29 @@ Android requires some extra steps in order to make the widget work correctly.  T
         </manifest>
    </android>
 ```
- See the tiapp.xml in the sample project for more details. Is important to run the function "createGrid" on the open event of the main application window or the window containing TiFlexiGrid. Also, put the function inside a setTimeout() so it can give Android some time to render the window and return the correct dimensions.
+ See the tiapp.xml in the sample project for more details. 
+
+ Also, is important to run the function "createGrid" on the open event of the main application window or the window containing TiFlexiGrid. Also, put the function inside a setTimeout() so it can give Android some time to render the window and return the correct dimensions.
+
+ You can use something like this:
+
+ ```javascript
+ $.fgWin.addEventListener('open',function(e){
+	setTimeout(function(){
+		$.fg.createGrid({
+			columns:3, 
+			space:10, 
+			data:items,
+			width: $.fgWin.size.width
+		});
+	},800);
+	
+});
 
 To understand it better, please refer to the sample project included.
 
+###About
+Created by Pablo Rodriguez Ruiz, [@pablorr18](http://twitter.com/pablorr18)
 
 
 
