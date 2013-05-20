@@ -5,7 +5,7 @@ function WPATH(s) {
 }
 
 function Controller() {
-    new (require("alloy/widget"))("tiflexigrid");
+    var Widget = new (require("alloy/widget"))("tiflexigrid");
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
     arguments[0] ? arguments[0]["$model"] : null;
@@ -43,57 +43,26 @@ function Controller() {
         var columns = params.columns || 4;
         var space = params.space || 5;
         var data = params.data || {};
+        var options = params.params || {};
+        var layout = params.layout || "gallery";
         var screenWidth = params.width || Ti.Platform.displayCaps.getPlatformWidth();
         var newWidth = screenWidth - space;
         var columnWidth = newWidth / columns - space;
+        var frameBGcolor = options.backgroundColor || "#fff";
         $.fgScrollView.left = space;
         $.fgScrollView.top = space;
         $.fgScrollView.right = -1;
+        $.fgMain.backgroundColor = frameBGcolor;
         for (var x = 0; data.length > x; x++) {
             var frame = Ti.UI.createView({
                 width: columnWidth,
                 height: columnWidth,
-                backgroundColor: "#ccc",
+                backgroundColor: options.gridColor || "#eee",
                 top: 0,
                 left: 0,
                 right: space,
                 bottom: space
             });
-            var main_view = Ti.UI.createView({
-                width: Ti.UI.FILL,
-                height: Ti.UI.FILL,
-                layout: "vertical",
-                backgroundColor: "transparent",
-                zIndex: 0
-            });
-            var thumb = Ti.UI.createView({
-                top: 5,
-                width: columnWidth - 10,
-                height: .7 * columnWidth,
-                backgroundColor: "#eee"
-            });
-            var img = Ti.UI.createImageView({
-                image: data[x].image,
-                width: "100%",
-                height: "100%"
-            });
-            thumb.add(img);
-            var vTitle = Ti.UI.createView({
-                width: Ti.UI.FILL,
-                height: Ti.UI.FILL,
-                backgroundColor: "transparent"
-            });
-            var title = Ti.UI.createLabel({
-                text: data[x].title,
-                width: Ti.UI.FILL,
-                height: Ti.UI.SIZE,
-                textAlign: "center",
-                color: "#555",
-                font: {
-                    fontSize: 12
-                }
-            });
-            vTitle.add(title);
             var overlay = Ti.UI.createView({
                 width: Ti.UI.FILL,
                 height: Ti.UI.FILL,
@@ -101,12 +70,25 @@ function Controller() {
                 zIndex: 1,
                 strImage: data[x].image
             });
-            overlay.addEventListener("click", function(e) {
-                exports.openModal(e.source.strImage);
-            });
-            main_view.add(thumb);
-            main_view.add(vTitle);
-            frame.add(main_view);
+            var gridElement;
+            switch (layout) {
+              case "gallery":
+                gridElement = Widget.createController("gallery", {
+                    image: data[x].image,
+                    title: data[x].title,
+                    width: columnWidth,
+                    padding: options.padding || 10,
+                    showTitle: options.showTitle || false
+                }).getView();
+                overlay.addEventListener("click", function(e) {
+                    exports.openModal(e.source.strImage);
+                });
+                break;
+
+              case "customView":
+                gridElement = data[x];
+            }
+            frame.add(gridElement);
             frame.add(overlay);
             $.fgScrollView.add(frame);
         }

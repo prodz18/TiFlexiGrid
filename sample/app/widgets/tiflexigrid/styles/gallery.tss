@@ -1,0 +1,14 @@
+"#fgMainView":{
+	width:Ti.UI.FILL,
+	height:Ti.UI.FILL,
+	layout:'vertical',
+	backgroundColor:'transparent',
+	zIndex:0
+},
+"fgThumb":{
+	backgroundColor:'#eee'
+},
+"fgImage":{
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE
+}

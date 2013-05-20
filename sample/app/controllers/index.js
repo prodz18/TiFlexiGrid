@@ -2,7 +2,7 @@
  * It just works!
  */
 
-//SOME SAMPLE DATA
+//SOME SAMPLE DATA FOR GALLERY LAYOUT
 var items = [
 	{title:'sample 1', image:'http://www.lorempixel.com/700/600/'},
 	{title:'sample 2', image:'http://www.lorempixel.com/900/1200/'},
@@ -16,10 +16,38 @@ var items = [
 	{title:'sample 10', image:'http://www.lorempixel.com/500/400/'}
 ];
 
+//SAMPLE FOR CUSTOM VIEWS
+/*
+var items = [];
+for (var x=0;x<10;x++){
+	var view = Ti.UI.createView({
+		width:'99%',
+		height:'99%',
+		backgroundColor:'#555'
+	});
+	
+	var label = Ti.UI.createLabel({
+		text:'View ' + x,
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
+		color:'#fff'
+	});
+	view.add(label);
+	items.push(view);
+};
+*/
+
 $.fg.createGrid({
-	columns:3, 					//NUMBER OF COLUMNS. DEFAULT IS 4.
+	columns:4, 					//NUMBER OF COLUMNS. DEFAULT IS 4.
 	space:10, 					//SPACE BETWEEN EACH ELEMENT. DEFAULT IS 5.
-	data:items					//ARRAY WITH THE DATA TO DISPLAY. SEE SAMPLE DATA ABOVE
+	data:items,					//ARRAY WITH THE DATA TO DISPLAY. SEE SAMPLE DATA ABOVE
+	layout:'gallery',			//LAYOUT TYPE: gallery or customView. DEFAULT IS gallery
+	params:{
+		padding:5,				//GALLERY ONLY
+		showTitle:false,		//GALLERY ONLY
+		backgroundColor: '#eee',
+		gridColor: '#ccc'
+	}
 	//width: 320				//OPTIONAL. SCREEN'S WIDTH TO ADJUST GRID.
 });
 
@@ -36,9 +64,16 @@ Ti.Gesture.addEventListener('orientationchange', function(e){
 		else if (orientation == 1 || orientation == 2){
 			$.fg.clearGrid();
 	    	var params = {
-				columns:3,
+				columns:4,
 				space:10,
 				data: items,
+				layout:'gallery',
+				params:{
+					padding:5,
+					showTitle:false,
+					backgroundColor: '#eee',
+					gridColor: '#ccc'
+				},
 				width: $.fgWin.size.width
 			};
 			$.fg.createGrid(params);
@@ -46,9 +81,16 @@ Ti.Gesture.addEventListener('orientationchange', function(e){
 	    else if (orientation == 3 || orientation == 4) {
 	    	$.fg.clearGrid();
 	    	var params = {
-				columns:4,
-				space:5,
+				columns:6,
+				space:10,
 				data: items,
+				layout:'gallery',
+				params:{
+					padding:5,
+					showTitle:false,
+					backgroundColor: '#eee',
+					gridColor: '#ccc'
+				},
 				width: $.fgWin.size.width
 			};
 			$.fg.createGrid(params);

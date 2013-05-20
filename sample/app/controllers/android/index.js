@@ -38,6 +38,25 @@ var items = [
 	{title:'sample 10', image:'http://dummyimage.com/400x300/000000/fff.jpg'}
 ];
 
+//SAMPLE FOR CUSTOM VIEWS
+/*
+var items = [];
+for (var x=0;x<10;x++){
+	var view = Ti.UI.createView({
+		width:'90%',
+		height:'90%',
+		backgroundColor:'#ff0000'
+	});
+	
+	var label = Ti.UI.createLabel({
+		text:x,
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
+	});
+	view.add(label);
+	items.push(view);
+};
+*/
 
 $.fgWin.addEventListener('open',function(e){
 	setTimeout(function(){
@@ -45,6 +64,13 @@ $.fgWin.addEventListener('open',function(e){
 			columns:3, 					//NUMBER OF COLUMNS. DEFAULT IS 4.
 			space:10, 					//SPACE BETWEEN EACH ELEMENT. DEFAULT IS 5.
 			data:items,					//ARRAY WITH THE DATA TO DISPLAY. SEE SAMPLE DATA ABOVE
+			layout:'gallery',			//LAYOUT TYPE: gallery,article,customView. DEFAULT IS gallery
+			params:{
+				padding:10,
+				showTitle:false,
+				backgroundColor: '#eee',
+				gridColor: '#ccc'
+			},
 			width: $.fgWin.size.width	//OPTIONAL. SCREEN'S WIDTH TO ADJUST GRID.
 		});
 	},800);
@@ -67,6 +93,13 @@ Ti.Gesture.addEventListener('orientationchange', function(e){
 			columns:3,
 			space:10,
 			data: items,
+			layout:'gallery',
+			params:{
+				padding:10,
+				showTitle:false,
+				backgroundColor: '#eee',
+				gridColor: '#ccc'
+			},
 			width: $.fgWin.size.width
 		};
 		$.fg.createGrid(params);
@@ -74,9 +107,16 @@ Ti.Gesture.addEventListener('orientationchange', function(e){
     else if (orientation == 2) {
     	$.fg.clearGrid();
     	var params = {
-			columns:5,
-			space:5,
+			columns:4,
+			space:10,
 			data: items,
+			layout:'gallery',
+			params:{
+				padding:10,
+				showTitle:false,
+				backgroundColor: '#eee',
+				gridColor: '#ccc'
+			},
 			width: $.fgWin.size.width
 		};
 		$.fg.createGrid(params);

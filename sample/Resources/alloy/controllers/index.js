@@ -71,9 +71,16 @@ function Controller() {
         image: "http://www.lorempixel.com/500/400/"
     } ];
     $.fg.createGrid({
-        columns: 3,
+        columns: 4,
         space: 10,
-        data: items
+        data: items,
+        layout: "gallery",
+        params: {
+            padding: 5,
+            showTitle: false,
+            backgroundColor: "#eee",
+            gridColor: "#ccc"
+        }
     });
     Ti.Gesture.addEventListener("orientationchange", function(e) {
         var orientation = e.orientation;
@@ -81,18 +88,32 @@ function Controller() {
         if (1 == orientation || 2 == orientation) {
             $.fg.clearGrid();
             var params = {
-                columns: 3,
+                columns: 4,
                 space: 10,
                 data: items,
+                layout: "gallery",
+                params: {
+                    padding: 5,
+                    showTitle: false,
+                    backgroundColor: "#eee",
+                    gridColor: "#ccc"
+                },
                 width: $.fgWin.size.width
             };
             $.fg.createGrid(params);
         } else if (3 == orientation || 4 == orientation) {
             $.fg.clearGrid();
             var params = {
-                columns: 4,
-                space: 5,
+                columns: 6,
+                space: 10,
                 data: items,
+                layout: "gallery",
+                params: {
+                    padding: 5,
+                    showTitle: false,
+                    backgroundColor: "#eee",
+                    gridColor: "#ccc"
+                },
                 width: $.fgWin.size.width
             };
             $.fg.createGrid(params);
