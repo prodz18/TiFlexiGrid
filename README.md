@@ -115,7 +115,7 @@ for (var x=0;x<10;x++){
 };
 
 var params = {
-	columns:4,
+	columns:2,
 	space:10,
 	data: items,
 	layout:'customView',
