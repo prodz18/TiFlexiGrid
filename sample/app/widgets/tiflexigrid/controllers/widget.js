@@ -9,6 +9,9 @@ exports.createGrid = function(args){
 	var options = params.params || {};
 	var layout = params.layout || 'gallery';
 	var screenWidth = params.width || Ti.Platform.displayCaps.getPlatformWidth();
+    if (OS_ANDROID) {
+        screenWidth /= Ti.Platform.displayCaps.logicalDensityFactor;
+    }
 	var newWidth = screenWidth - space;
 	var columnWidth = (newWidth / columns) - space;
 	var frameBGcolor = options.backgroundColor || '#fff';

@@ -7,7 +7,7 @@ function guid() {
 }
 
 function InitAdapter() {
-    throw "localStorage persistence supported only with MobileWeb.";
+    throw "localStorage persistence supported only with MobileWeb and Tizen.";
 }
 
 function Sync(method, model, opts) {
