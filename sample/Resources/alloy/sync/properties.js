@@ -16,7 +16,6 @@ function Sync(method, model, opts) {
             var match = prop.match(regex);
             null !== match && list.push(TAP.getObject(prop));
         });
-        model.reset(list);
         resp = list;
     } else {
         var obj = TAP.getObject(prefix + "-" + model.id);
