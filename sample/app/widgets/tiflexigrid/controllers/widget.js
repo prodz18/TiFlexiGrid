@@ -1,4 +1,3 @@
-
 exports.createGrid = function(args){
 	var params = args || {};
 	//Ti.API.info('Params es ---> '+ JSON.stringify(params));
@@ -65,7 +64,11 @@ exports.createGrid = function(args){
 		}
 				 
 		frame.add(gridElement);
-		frame.add(overlay);
+		// This condition makes the overlay not be added if it's not gallery layout.
+		// It's used to make the custom view, caputre the click method. If not,
+		// The overlay is on top of it and captures the click.
+		if(layout == 'gallery')
+			frame.add(overlay);
 		
 		$.fgScrollView.add(frame);
 	};
