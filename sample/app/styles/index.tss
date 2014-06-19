@@ -3,10 +3,16 @@
 	navBarHidden:true,
 	tabBarHidden:true,
 	layout:'vertical',
+	orientationModes: [Ti.UI.PORTRAIT,Ti.UI.LANDSCAPE_LEFT,Ti.UI.LANDSCAPE_RIGHT,Ti.UI.UPSIDE_PORTRAIT],
 	exitOnClose:true
 },
 "#fgHeader":{
-	backgroundColor:'#555',
+	backgroundColor:'#00b3ed',
+	width:Ti.UI.FILL,
+	height:60
+},
+"#fgHeader[platform=android]":{
+	backgroundColor:'#00b3ed',
 	width:Ti.UI.FILL,
 	height:50
 },
@@ -15,5 +21,14 @@
 	width:Ti.UI.SIZE,
 	height:Ti.UI.SIZE,
 	color:'#fff',
-	font:{fontSize:18,fontWeight:'bold'}
+	font:{fontSize:18,fontWeight:'bold'},
+	bottom:10
+},
+"#fgHeaderTitle[platform=android]":{
+	text:'TiFlexiGrid',
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+	color:'#fff',
+	font:{fontSize:18,fontWeight:'bold'},
+	left:10
 }

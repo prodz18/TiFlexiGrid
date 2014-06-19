@@ -6,6 +6,6 @@
 	"os:ios": {}, 
 	"os:android": {}, 
 	"dependencies": {
-		"tiflexigrid":"1.1"
+		"com.prodz.tiflexigrid":"1.2"
 	}
 }

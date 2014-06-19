@@ -3,6 +3,6 @@
 		<View id="fgHeader">
 			<Label id="fgHeaderTitle">TiFlexiGrid</Label>
 		</View>
-		<Require type="widget" src="tiflexigrid" id="fg"/>
+		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
 	</Window>		
 </Alloy>

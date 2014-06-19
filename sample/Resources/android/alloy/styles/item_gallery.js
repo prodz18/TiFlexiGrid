@@ -1,0 +1,1 @@
+module.exports = [{"isApi":true,"priority":1000.0017,"key":"imgContainer","style":{backgroundColor:"#eee",}},{"isApi":true,"priority":1000.0018,"key":"thumb","style":{width:Ti.UI.SIZE,height:Ti.UI.SIZE,}},{"isId":true,"priority":100000.0016,"key":"mainView","style":{width:Ti.UI.FILL,height:Ti.UI.FILL,layout:"vertical",backgroundColor:"transparent",zIndex:0,}}];

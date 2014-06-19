@@ -1,0 +1,13 @@
+{
+	"id": "com.prodz.tiflexigrid",
+	"name": "TiFlexiGrid",
+	"description" : "A very flexible grid layout for iOS and Android. It works on handsets and tablets in any orientation.",
+	"author": "Pablo Rodriguez Ruiz / Lineart Media Designs Inc.",
+	"version": "1.2",
+	"copyright":"Copyright (c) 2014 Lineart Media Designs Inc.",
+	"license":"Public Domain",
+	"min-alloy-version": "1.3",
+	"min-titanium-version":"3.2",
+	"tags":"grid,gallery,tiflexigrid",
+	"platforms":"android,ios"
+}

@@ -1,11 +1,19 @@
-TiFlexiGrid 1.1
+![logo](http://www.lineartpr.com/img/github/tfg_logo.png)
 ================================
 
-An Alloy Widget for creating flexible grid layouts in iOS and Android. It works on phones and tablets in any orientation. You can also set different grid layouts depending the orientations. Also, when you click one of the items, it will pop-up in a modal view (gallery layout). Or you can create your own views and assign them in TiFlexiGrid. Please refer to the sample project to see it in action.
+An Alloy Widget for creating flexible grid layouts in iOS and Android. It works on phones and tablets in any orientation.  Now you can create your own custom grid items and assign them to TiFlexiGrid . You can set different grid parameters depending the orientations, each item could have it's own layout, add a custom function when an item is clicked, add a single item or group of items, clear the grid, etc. Please refer to the sample project to see it in action.
 
-More cool stuff very soon. Thanks everyone for the feedback. If anyone have some ideas o requests, please let me know at [@pablorr18](http://twitter.com/pablorr18).
+Thanks to everyone for the feedback and contributions. It's awesome to see so many people using my widget. If anyone have some ideas, requests, contributions or want to show how you are using the widget , contact me at [@pablorr18](http://twitter.com/pablorr18). Another cool widget is coming very soon.
 
 ### Changelog
+
+**1.2**
+* New parameters, methods and functions (even more flexible). More info below.
+* New onItemClick event
+* Optimizations for Android (both handsets and tablets)
+* Fixed issue about images not loading (iOS)
+* New sample for both iOS and Android  (Cross-Platform Image Gallery Sample) 
+* General bug fixes
 
 **1.1**
 * New layout property: you can use a gallery layout or  a customView layout
@@ -18,12 +26,13 @@ More cool stuff very soon. Thanks everyone for the feedback. If anyone have some
 
 ### Screenshots
 
-![iPhone](http://www.lineartpr.com/img/github/tiflexigrid_iphone.jpg)
-![iPhone](http://www.lineartpr.com/img/github/tiflexigrid_iphone1.jpg)
+![iPhone](http://www.lineartpr.com/img/github/tfg_iphone.jpg)
 
-![iPad](http://www.lineartpr.com/img/github/tiflexigrid_ipad.jpg)
+![iPad](http://www.lineartpr.com/img/github/tfg_ipad.jpg)
 
-![Android](http://www.lineartpr.com/img/github/tiflexigrid_android.jpg)
+![Android Handset](http://www.lineartpr.com/img/github/tfg_android_phone.jpg)
+
+![Android Tablet](http://www.lineartpr.com/img/github/tfg_android_tablet.jpg)
 
 
 ### How to use
@@ -32,107 +41,134 @@ First, add the widget to the dependencies list in your Alloy Project (config.jso
 
 ```javascript
 "dependencies": {
-	"tiflexigrid":"1.1"
+	"com.prodz.tiflexigrid":"1.2"
 }
 ```
 
-Add the widget to a view (index.xml):
+Add the widget to a window or view:
 
 ```xml
 <Alloy>
 	<Window id="fgWin">
-		<Require type="widget" src="tiflexigrid" id="fg"/>
+		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
 	</Window>		
 </Alloy>
 ```
 
-Create an array with the data to show (title and image) and initialize the widget in the controller (index.js):
+Now, initialize the widget:
 
 ```javascript
-//SOME SAMPLE DATA
-var items = [
-	{title:'sample 1', image:'http://www.lorempixel.com/700/600/'},
-	{title:'sample 2', image:'http://www.lorempixel.com/900/1200/'},
-	{title:'sample 3', image:'http://www.lorempixel.com/400/300/'},
-	{title:'sample 4', image:'http://www.lorempixel.com/600/600/'},
-	{title:'sample 5', image:'http://www.lorempixel.com/400/310/'},
-	{title:'sample 6', image:'http://www.lorempixel.com/410/300/'},
-	{title:'sample 7', image:'http://www.lorempixel.com/500/300/'},
-	{title:'sample 8', image:'http://www.lorempixel.com/300/300/'},
-	{title:'sample 9', image:'http://www.lorempixel.com/450/320/'},
-	{title:'sample 10', image:'http://www.lorempixel.com/500/400/'}
-];
-
-$.fg.createGrid({
-	columns:3, 				//NUMBER OF COLUMNS. DEFAULT IS 4.
-	space:10, 				//SPACE BETWEEN EACH ELEMENT. DEFAULT IS 5.
-	data:items,				//ARRAY WITH THE DATA TO DISPLAY. SEE SAMPLE DATA ABOVE.
-	layout:'gallery',				//LAYOUT TYPE: gallery or customView. DEFAULT IS gallery.
-	params:{
-		padding:5,			//GALLERY ONLY.
-		showTitle:false,		//GALLERY ONLY. True or False
-		backgroundColor: '#eee',
-		gridColor: '#ccc'
-	}
-	//width: 320				//OPTIONAL. SCREEN'S WIDTH TO ADJUST GRID.
+$.fg.init({
+	columns:3,
+	space:5,
+	gridBackgroundColor:'#fff',
+	itemHeightDelta: 0,
+	itemBackgroundColor:'#eee',
+	itemBorderColor:'transparent',
+	itemBorderWidth:0,
+	itemBorderRadius:0
 });
 
-$.fgWin.open();
 ```
+
+Now, this is the important part. Create an empty array. In this array, each object should contain the following properties: "view" and "data". The "view" is our custom grid item (it should be a view containing all the elements or layout that you want). The "data" is the information that we want to be available once we click the item. Once we have all our items ready in the array, add it to the grid. For example:
+
+```javascript
+
+var items = [];
+
+var sample_data = [
+		{title:'sample 1', image:'http://www.lorempixel.com/700/600/'},
+		{title:'sample 2', image:'http://www.lorempixel.com/900/1200/'},
+		{title:'sample 3', image:'http://www.lorempixel.com/400/300/'},
+		{title:'sample 4', image:'http://www.lorempixel.com/600/600/'},
+		{title:'sample 5', image:'http://www.lorempixel.com/400/310/'},
+		{title:'sample 6', image:'http://www.lorempixel.com/410/300/'},
+		{title:'sample 7', image:'http://www.lorempixel.com/500/300/'},
+		{title:'sample 8', image:'http://www.lorempixel.com/300/300/'},
+		{title:'sample 9', image:'http://www.lorempixel.com/450/320/'},
+		{title:'sample 10', image:'http://www.lorempixel.com/523/424/'},
+		{title:'sample 11', image:'http://www.lorempixel.com/610/320/'},
+		{title:'sample 12', image:'http://www.lorempixel.com/450/450/'},
+		{title:'sample 13', image:'http://www.lorempixel.com/620/420/'},
+		{title:'sample 14', image:'http://www.lorempixel.com/710/410/'},
+		{title:'sample 15', image:'http://www.lorempixel.com/500/500/'}
+	];
+
+for (var x=0; x < sample_data.length; x++){
+	
+	//CREATES A VIEW WITH OUR CUSTOM LAYOUT
+	var view = Alloy.createController('YOUR_CUSTOM_LAYOUT_CONTROLLER').getView();
+		
+	//THIS IS THE DATA THAT WE WANT AVAILABLE FOR THIS ITEM WHEN onItemClick OCCURS
+	var values = {
+		title: sample_data[x].title,
+		image: sample_data[x].image
+	};
+		
+	//NOW WE PUSH TO THE ARRAY THE VIEW AND THE DATA
+	items.push({
+		view: view,
+		data: values
+	});
+};
+	
+//ADD ALL THE ITEMS TO THE GRID
+$.fg.addGridItems(items);
+
+```
+
+Notice that in the "**data**" property of the items we added the variable "**values**", which contains "**title**" and "**image**". Now, we can get this data on  "**onItemClick**" by doing this:
+
+```javascript
+$.fg.setOnItemClick(function(e){
+	alert('Title is: ' + e.source.data.title + '. Image is: ' + e.source.data.image);
+});
+```
+
+Of course, you can add whatever you want. For example, could add "**url**" to "**values**" and you could get it like:
+
+```javascript
+alert('URL is: ' + e.source.data.url);
+```
+Please refer to the Image Gallery Sample included in the project to see it in action.
+
 
 ### Methods
 
-**createGrid(parameters)** - creates a grid layout with the following parameters:
+**init(parameters)** - initialize the grid layout with the following parameters:
 * columns - number of columns
 * space - space between each element
-* data - array with objects (title and image)
-* layout - type of layout (gallery or customView)
-* params - properties for the layout (padding, showTitle, backgroundColor and gridColor)
-* width - Optional. Width to adjust the grid (especially in Android)
+* data - array with objects (view and data)
+* gridBackgroundColor - background color for the grid view
+* itemHeightDelta - extra height to be added to the grid item
+* itemBackgroundColor
+* itemBorderColor
+* itemBorderWidth
+* itemBorderRadius
+* onItemClick - function; fire when an item from the grid is clicked
+
+**getItemWidth()** - returns the width of the Item Grid.
+
+**getItemHeight()** - returns the height of the Item Grid.
+
+**addGridItems(array)** - add a group of items to the grid. Each object in the array should contains:
+* view - a view with the custom layout
+* data - the data we want available when an item is clicked
+
+**addGridItem(object)** - add a single item to the grid. The object should contains:
+* view - a view with the custom layout
+* data - the data we want available when an item is clicked
 
 **clearGrid()** - clears all the elements of the grid. 
 
-### customView Layout
-Now you can assign an array of views to TiFlexiGrid. Here is an example:
-```javascript
-//SAMPLE FOR CUSTOM VIEWS
-var items = [];
-for (var x=0;x<10;x++){
-	var view = Ti.UI.createView({
-		width:'99%',
-		height:'99%',
-		backgroundColor:'#555'
-	});
+**setOnItemClick(function)** - set the event that will trigger once an item from the grid is clicked
 
-	var label = Ti.UI.createLabel({
-		text:'View ' + x,
-		width:Ti.UI.SIZE,
-		height:Ti.UI.SIZE,
-		color:'#fff'
-	});
-	view.add(label);
-	items.push(view);
-};
-
-var params = {
-	columns:2,
-	space:10,
-	data: items,
-	layout:'customView',
-	params:{
-		backgroundColor: '#eee',
-		gridColor: '#ccc'
-	},
-	width: $.fgWin.size.width
-};
-$.fg.createGrid(params);
-```
-![iPhone](http://www.lineartpr.com/img/github/tiflexigrid_iphone2.jpg)
-
+**openModal(url)** - opens an image with a "pop-up" effect. 
 
 ### Note for Android
 
-Android requires some extra steps in order to make the widget work correctly.  The widget uses anydensity = true and system units as dp in the tiapp.xml. 
+The widget uses anydensity = true and system units as dp (now default in the latest Titanium SDK) in the tiapp.xml. 
  
  You can use something like this in your tiapp.xml:
 ```xml
@@ -145,39 +181,14 @@ Android requires some extra steps in order to make the widget work correctly.  T
         </manifest>
    </android>
 ```
- See the tiapp.xml in the sample project for more details. 
-
- Also, is important to run the function "createGrid" on the open event of the main application window or the window containing TiFlexiGrid. Also, put the function inside a setTimeout() so it can give Android some time to render the window and return the correct dimensions.
-
- You can use something like this:
-
- ```javascript
- $.fgWin.addEventListener('open',function(e){
-	setTimeout(function(){
-		$.fg.createGrid({
-			columns:3, 
-			space:10, 
-			data:items,
-			layout:'gallery',
-			params:{
-				padding:10,
-				showTitle:false,
-				backgroundColor: '#eee',
-				gridColor: '#ccc'
-			},
-			width: $.fgWin.size.width
-		});
-	},800);
-	
-});
-```
+See the tiapp.xml in the sample project for more details. 
 
 To understand it better, please refer to the sample project included.
 
 ###License
 The MIT License (MIT)
 
-Copyright (c) 2013 Pablo Rodriguez Ruiz, [@pablorr18](http://twitter.com/pablorr18) 
+Copyright (c) 2014 Pablo Rodriguez Ruiz, [@pablorr18](http://twitter.com/pablorr18) 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

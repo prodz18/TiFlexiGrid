@@ -6,7 +6,7 @@
     <publisher>pablorr18</publisher>
     <url>http://www.lineartpr.com</url>
     <description>not specified</description>
-    <copyright>2013 by pablorr18</copyright>
+    <copyright>2014 by pablorr18</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
@@ -30,11 +30,11 @@
     </iphone>
     <property name="ti.android.fastdev" type="bool">false</property>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-    	<tool-api-level>16</tool-api-level>
+        <tool-api-level>16</tool-api-level>
         <manifest android:versionCode="1" android:versionName="1.0">
             <supports-screens android:anyDensity="true"
                 android:largeScreens="true" android:normalScreens="true"
-                android:smallScreens="false" android:xlargeScreens="false"/>
+                android:smallScreens="false" android:xlargeScreens="true"/>
         </manifest>
     </android>
     <mobileweb>
@@ -54,7 +54,7 @@
         <target device="mobileweb">true</target>
         <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>3.1.0.GA</sdk-version>
+    <sdk-version>3.2.3.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>

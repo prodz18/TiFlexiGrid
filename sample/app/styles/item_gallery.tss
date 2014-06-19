@@ -1,0 +1,14 @@
+"#mainView":{
+	width:Ti.UI.FILL,
+	height:Ti.UI.FILL,
+	layout:'vertical',
+	backgroundColor:'transparent',
+	zIndex:0
+},
+"imgContainer":{
+	backgroundColor:'#eee'
+},
+"thumb":{
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE
+}

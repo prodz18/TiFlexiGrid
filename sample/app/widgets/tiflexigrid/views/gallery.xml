@@ -1,7 +1,0 @@
-<Alloy>
-	<View id="fgMainView">
-		<View id="fgThumb">
-			<ImageView id="fgImage"/>
-		</View>	
-	</View>	
-</Alloy>
