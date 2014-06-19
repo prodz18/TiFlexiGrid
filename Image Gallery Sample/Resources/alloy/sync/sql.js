@@ -242,17 +242,12 @@ function Migrate(Model) {
 function installDatabase(config) {
     var dbFile = config.adapter.db_file;
     var table = config.adapter.collection_name;
-    var rx = /(^|.*\/)([^\/]+)\.[^\/]+$/;
+    var rx = /^([\/]{0,1})([^\/]+)\.[^\/]+$/;
     var match = dbFile.match(rx);
     if (null === match) throw 'Invalid sql database filename "' + dbFile + '"';
-    config.adapter.db_name = config.adapter.db_name || match[2];
-    var dbName = config.adapter.db_name;
+    var dbName = config.adapter.db_name = match[2];
     Ti.API.debug('Installing sql database "' + dbFile + '" with name "' + dbName + '"');
     var db = Ti.Database.install(dbFile, dbName);
-    if (false === config.adapter.remoteBackup && true) {
-        Ti.API.debug('iCloud "do not backup" flag set for database "' + dbFile + '"');
-        db.file.setRemoteBackup(false);
-    }
     var rs = db.execute('pragma table_info("' + table + '");');
     var columns = {};
     while (rs.isValidRow()) {

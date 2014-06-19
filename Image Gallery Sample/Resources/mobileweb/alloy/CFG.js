@@ -1,0 +1,1 @@
+module.exports={"dependencies":{"tiflexigrid":"1.1","com.prodz.tiflexigrid":"1.2"}};

@@ -6,12 +6,9 @@ function WPATH(s) {
 
 function Controller() {
     var Widget = new (require("alloy/widget"))("tiflexigrid");
-    this.__widgetId = "tiflexigrid";
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
-    this.__controllerPath = "widget";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
     arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
     $.__views.fgMain = Ti.UI.createView({
