@@ -13,6 +13,7 @@ exports.createGrid = function(args){
     }
 	var newWidth = screenWidth - space;
 	var columnWidth = (newWidth / columns) - space;
+	var heightDelta = params.heightDelta || 0;
 	var frameBGcolor = options.backgroundColor || '#fff';
 	
 	//ADJUST THE SCROLLVIEW
@@ -26,7 +27,7 @@ exports.createGrid = function(args){
 		
 		var frame = Ti.UI.createView({
 			width:columnWidth,
-			height:columnWidth,
+			height:columnWidth + heightDelta,
 			backgroundColor:options.gridColor || '#eee',
 			top:0,
 			left:0,
