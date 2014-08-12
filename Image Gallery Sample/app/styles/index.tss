@@ -11,11 +11,6 @@
 	width:Ti.UI.FILL,
 	height:60
 },
-"#fgHeader[platform=android]":{
-	backgroundColor:'#00b3ed',
-	width:Ti.UI.FILL,
-	height:50
-},
 "#fgHeaderTitle":{
 	text:'TiFlexiGrid',
 	width:Ti.UI.SIZE,
@@ -23,12 +18,4 @@
 	color:'#fff',
 	font:{fontSize:18,fontWeight:'bold'},
 	bottom:10
-},
-"#fgHeaderTitle[platform=android]":{
-	text:'TiFlexiGrid',
-	width:Ti.UI.SIZE,
-	height:Ti.UI.SIZE,
-	color:'#fff',
-	font:{fontSize:18,fontWeight:'bold'},
-	left:10
 }

@@ -18,7 +18,7 @@ exports.init = function (logger, config, cli, appc) {
 		spawn = require('child_process').spawn,
 		parallel = appc.async.parallel;
 
-	function run(deviceFamily, deployType, finished) {
+	function run(deviceFamily, deployType, target, finished) {
 		var appDir = path.join(cli.argv['project-dir'], 'app');
 		if (!afs.exists(appDir)) {
 			logger.info(__('Project not an Alloy app, continuing'));
@@ -41,7 +41,8 @@ exports.init = function (logger, config, cli, appc) {
 				version: '0',
 				simtype: 'none',
 				devicefamily: /(?:iphone|ios)/.test(cli.argv.platform) ? deviceFamily : 'none',
-				deploytype: deployType || cli.argv['deploy-type'] || 'development'
+				deploytype: deployType || cli.argv['deploy-type'] || 'development',
+				target: target
 			};
 
 		config = Object.keys(config).map(function (c) {
@@ -106,11 +107,11 @@ exports.init = function (logger, config, cli, appc) {
 				};
 			}), function () {
 				var cmd = [paths.node, paths.alloy, 'compile', appDir, '--config', config];
-				if (cli.argv['no-colors']) { cmd.push('--no-colors'); }
+				if (cli.argv['no-colors'] || cli.argv['color'] === false) { cmd.push('--no-colors'); }
 				if (process.platform === 'win32') { cmd.shift(); }
 				logger.info(__('Executing Alloy compile: %s', cmd.join(' ').cyan));
 
-				var child = spawn(cmd.shift(), cmd);
+				var child = (process.platform === 'win32') ? spawn(cmd.shift(), cmd, { stdio: 'inherit' }) : spawn(cmd.shift(), cmd);
 
 				function checkLine(line) {
 					var re = new RegExp(
@@ -128,17 +129,17 @@ exports.init = function (logger, config, cli, appc) {
 					}
 				}
 
-				child.stdout.on('data', function (data) {
+				child.stdout !== null && child.stdout.on('data', function (data) {
 					data.toString().split('\n').forEach(function (line) {
 						checkLine(line);
 					});
 				});
-				child.stderr.on('data', function (data) {
+				child.stderr !== null && child.stderr.on('data', function (data) {
 					data.toString().split('\n').forEach(function (line) {
 						checkLine(line);
 					});
 				});
-				child.on('exit', function (code) {
+				child !== null && child.on('exit', function (code) {
 					if (code) {
 						logger.error(__('Alloy compiler failed'));
 						process.exit(1);
@@ -154,8 +155,10 @@ exports.init = function (logger, config, cli, appc) {
 	cli.addHook('build.pre.compile', function (build, finished) {
 		// TODO: Remove this workaround when the CLI reports the right deploy type for android
 		var deployType = build.deployType;
+		var target = build.target;
+
 		if (cli.argv.platform === 'android') {
-			switch(cli.argv.target) {
+			switch(target) {
 				case 'dist-playstore':
 					deployType = 'production';
 					break;
@@ -168,10 +171,10 @@ exports.init = function (logger, config, cli, appc) {
 					break;
 			}
 		}
-		run(build.deviceFamily, deployType, finished);
+		run(build.deviceFamily, deployType, target, finished);
 	});
 
 	cli.addHook('codeprocessor.pre.run', function (build, finished) {
-		run('none', 'development', finished);
+		run('none', 'development', undefined, finished);
 	});
 };

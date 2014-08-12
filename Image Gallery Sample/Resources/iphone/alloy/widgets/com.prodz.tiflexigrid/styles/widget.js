@@ -6,7 +6,7 @@ function WPATH(s) {
 
 module.exports = [ {
     isId: true,
-    priority: 100000.0008,
+    priority: 100000.0002,
     key: "fgMain",
     style: {
         backgroundColor: "#fff",
@@ -15,7 +15,7 @@ module.exports = [ {
     }
 }, {
     isId: true,
-    priority: 100000.0009,
+    priority: 100000.0003,
     key: "fgWrapper",
     style: {
         width: Ti.UI.FILL,
@@ -24,7 +24,7 @@ module.exports = [ {
     }
 }, {
     isId: true,
-    priority: 100000.001,
+    priority: 100000.0004,
     key: "fgScrollView",
     style: {
         width: Ti.UI.FILL,

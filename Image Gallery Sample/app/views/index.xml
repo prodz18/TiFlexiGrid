@@ -1,6 +1,6 @@
 <Alloy>
 	<Window id="fgWin">
-		<View id="fgHeader">
+		<View id="fgHeader" platform="ios">
 			<Label id="fgHeaderTitle">TiFlexiGrid</Label>
 		</View>
 		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>

@@ -4,14 +4,25 @@ function WPATH(s) {
     return true && 0 !== path.indexOf("/") ? "/" + path : path;
 }
 
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     new (require("alloy/widget"))("com.prodz.tiflexigrid");
     this.__widgetId = "com.prodz.tiflexigrid";
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "widget";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     $.__views.fgMain = Ti.UI.createView({
@@ -150,6 +161,11 @@ function Controller() {
     var getItemHeight = function() {
         return columnWidth + itemsOptions.heightDelta;
     };
+    var setOnItemClick = function(fnt) {
+        onItemClick = fnt || function() {
+            Ti.API.info("TiFlexiGrid -> onItemClick is not defined.");
+        };
+    };
     exports.init = init;
     exports.addGridItems = addGridItems;
     exports.clearGrid = clearGrid;
@@ -157,6 +173,7 @@ function Controller() {
     exports.addGridItem = addGridItem;
     exports.getItemWidth = getItemWidth;
     exports.getItemHeight = getItemHeight;
+    exports.setOnItemClick = setOnItemClick;
     _.extend($, exports);
 }
 

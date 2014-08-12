@@ -71,6 +71,10 @@ exports.DEPLOY_TYPES = [
 	{ key: 'ENV_PROD', value: 'production' },
 	{ key: 'ENV_PRODUCTION', value: 'production' }
 ];
+exports.DIST_TYPES = [
+	{ key: 'DIST_ADHOC', value: ['dist-adhoc'] },
+	{ key: 'DIST_STORE', value: ['dist-appstore', 'dist-playstore'] }
+];
 
 // mappings of file extensions and folders for each file type
 exports.FILE_EXT = {
@@ -103,6 +107,11 @@ exports.DIR = {
 	THEME: 'themes',
 	BUILD: 'build/alloy'
 };
+// folders/files to exclude when copying and processing files
+// RegEx format: must escape special chars - so use \.svn not .svn
+exports.EXCLUDED_FILES = [
+	'\\.svn'
+];
 
 // constants identifying JS reserved words
 exports.JS_RESERVED = [
@@ -145,6 +154,7 @@ exports.IMPLICIT_NAMESPACES = {
 	CoverFlowImageTypes: NS_ALLOY_ABSTRACT,
 	CoverFlowImageType: NS_ALLOY_ABSTRACT,
 	FlexSpace: NS_ALLOY_ABSTRACT,
+	FixedSpace: NS_ALLOY_ABSTRACT,
 	Images: NS_ALLOY_ABSTRACT,
 	Item: NS_ALLOY_ABSTRACT,
 	Items: NS_ALLOY_ABSTRACT,
@@ -187,6 +197,9 @@ exports.IMPLICIT_NAMESPACES = {
 	RightNavButton: 'Ti.UI.Window',
 	TitleControl: 'Ti.UI.Window',
 
+	// Ti.UI.iPad.Popover
+	ContentView: 'Ti.UI.iPad.Popover',
+
 	// Table and List proxy properties
 	FooterView: '_ProxyProperty._Lists',
 	HeaderView: '_ProxyProperty._Lists',
@@ -198,6 +211,6 @@ exports.IMPLICIT_NAMESPACES = {
 	// misc proxy properties
 	RightButton: '_ProxyProperty',
 	LeftButton: '_ProxyProperty',
-	KeyboardToolbar: '_ProxyProperty'
+	KeyboardToolbar: '_ProxyProperty',
 
 };

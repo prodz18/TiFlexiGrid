@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function createSampleData() {
         items = [];
@@ -112,9 +121,11 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        __processArg(arguments[0], "__parentSymbol");
+        __processArg(arguments[0], "$model");
+        __processArg(arguments[0], "__itemTemplate");
+    }
     var $ = this;
     var exports = {};
     $.__views.fgWin = Ti.UI.createWindow({
@@ -127,27 +138,6 @@ function Controller() {
         id: "fgWin"
     });
     $.__views.fgWin && $.addTopLevelView($.__views.fgWin);
-    $.__views.fgHeader = Ti.UI.createView({
-        backgroundColor: "#00b3ed",
-        width: Ti.UI.FILL,
-        height: 50,
-        id: "fgHeader"
-    });
-    $.__views.fgWin.add($.__views.fgHeader);
-    $.__views.fgHeaderTitle = Ti.UI.createLabel({
-        text: "TiFlexiGrid",
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#fff",
-        font: {
-            fontSize: 18,
-            fontWeight: "bold"
-        },
-        bottom: 10,
-        left: 10,
-        id: "fgHeaderTitle"
-    });
-    $.__views.fgHeader.add($.__views.fgHeaderTitle);
     $.__views.fg = Alloy.createWidget("com.prodz.tiflexigrid", "widget", {
         id: "fg",
         __parentSymbol: $.__views.fgWin

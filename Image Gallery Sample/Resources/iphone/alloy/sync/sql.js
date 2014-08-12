@@ -153,7 +153,7 @@ function Sync(method, model, opts) {
       case "read":
         opts.query && opts.id && Ti.API.warn('Both "query" and "id" options were specified for model.fetch(). "id" will be ignored.');
         sql = "SELECT * FROM " + table;
-        opts.query ? sql = opts.query : opts.id && (sql += " WHERE " + model.idAttribute + " = " + opts.id);
+        opts.query ? sql = opts.query : opts.id && (sql += " WHERE " + (model.idAttribute ? model.idAttribute : ALLOY_ID_DEFAULT) + " = " + (_.isString(opts.id) ? '"' + opts.id + '"' : opts.id));
         db = Ti.Database.open(dbName);
         var rs;
         rs = _.isString(sql) ? db.execute(sql) : db.execute(sql.statement, sql.params);
@@ -266,16 +266,26 @@ function installDatabase(config) {
         db.file.setRemoteBackup(false);
     }
     var rs = db.execute('pragma table_info("' + table + '");');
-    var columns = {};
-    while (rs.isValidRow()) {
-        var cName = rs.fieldByName("name");
-        var cType = rs.fieldByName("type");
-        columns[cName] = cType;
-        cName !== ALLOY_ID_DEFAULT || config.adapter.idAttribute || (config.adapter.idAttribute = ALLOY_ID_DEFAULT);
-        rs.next();
+    var cName, cType, columns = {};
+    if (rs) {
+        while (rs.isValidRow()) {
+            cName = rs.fieldByName("name");
+            cType = rs.fieldByName("type");
+            columns[cName] = cType;
+            cName !== ALLOY_ID_DEFAULT || config.adapter.idAttribute || (config.adapter.idAttribute = ALLOY_ID_DEFAULT);
+            rs.next();
+        }
+        rs.close();
+    } else {
+        config.adapter.idAttribute ? config.adapter.idAttribute : ALLOY_ID_DEFAULT;
+        for (var k in config.columns) {
+            cName = k;
+            cType = config.columns[k];
+            cName !== ALLOY_ID_DEFAULT || config.adapter.idAttribute ? k === config.adapter.idAttribute && (cType += " UNIQUE") : config.adapter.idAttribute = ALLOY_ID_DEFAULT;
+            columns[cName] = cType;
+        }
     }
     config.columns = columns;
-    rs.close();
     if (config.adapter.idAttribute) {
         if (!_.contains(_.keys(config.columns), config.adapter.idAttribute)) throw 'config.adapter.idAttribute "' + config.adapter.idAttribute + '" not found in list of columns for table "' + table + '"\n' + "columns: [" + _.keys(config.columns).join(",") + "]";
     } else {
