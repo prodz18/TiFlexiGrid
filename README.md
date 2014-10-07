@@ -7,6 +7,8 @@ Thanks to everyone for the feedback and contributions. It's awesome to see so ma
 
 ### Changelog
 
+**Module version now available (for Ti Classic)**
+
 **1.2**
 * New parameters, methods and functions (even more flexible). More info below.
 * New onItemClick event
