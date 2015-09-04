@@ -9,12 +9,16 @@ Thanks to everyone for the feedback and contributions. It's awesome to see so ma
 
 **Module version now available (for Ti Classic)**
 
+**1.3**
+* Code looks prettier
+* New parameter 'overlay' which enable/disable the overlay Ti.UI.View inside the frame. Enabled by default, as it has always be but could be useful when you don't need to open pop-ups on clicks and when you want to be able to deal with click event handling on the items themselves rather than having the overlay catching everything.
+
 **1.2**
 * New parameters, methods and functions (even more flexible). More info below.
 * New onItemClick event
 * Optimizations for Android (both handsets and tablets)
 * Fixed issue about images not loading (iOS)
-* New sample for both iOS and Android  (Cross-Platform Image Gallery Sample) 
+* New sample for both iOS and Android  (Cross-Platform Image Gallery Sample)
 * General bug fixes
 
 **1.1**
@@ -23,7 +27,7 @@ Thanks to everyone for the feedback and contributions. It's awesome to see so ma
 * thumbnail generator in gallery layout (iOS only for now)
 * general bug fixes
 
-**1.0** 
+**1.0**
 * Initial Release
 
 ### Screenshots
@@ -53,7 +57,7 @@ Add the widget to a window or view:
 <Alloy>
 	<Window id="fgWin">
 		<Require type="widget" src="com.prodz.tiflexigrid" id="fg"/>
-	</Window>		
+	</Window>
 </Alloy>
 ```
 
@@ -61,14 +65,15 @@ Now, initialize the widget:
 
 ```javascript
 $.fg.init({
-	columns:3,
-	space:5,
-	gridBackgroundColor:'#fff',
+	columns: 3,
+	space: 5,
+	gridBackgroundColor: '#fff',
 	itemHeightDelta: 0,
-	itemBackgroundColor:'#eee',
-	itemBorderColor:'transparent',
-	itemBorderWidth:0,
-	itemBorderRadius:0
+	itemBackgroundColor: '#eee',
+	itemBorderColor: 'transparent',
+	itemBorderWidth: 0,
+	itemBorderRadius: 0,
+	overlay: true
 });
 
 ```
@@ -98,23 +103,23 @@ var sample_data = [
 	];
 
 for (var x=0; x < sample_data.length; x++){
-	
+
 	//CREATES A VIEW WITH OUR CUSTOM LAYOUT
 	var view = Alloy.createController('YOUR_CUSTOM_LAYOUT_CONTROLLER').getView();
-		
+
 	//THIS IS THE DATA THAT WE WANT AVAILABLE FOR THIS ITEM WHEN onItemClick OCCURS
 	var values = {
 		title: sample_data[x].title,
 		image: sample_data[x].image
 	};
-		
+
 	//NOW WE PUSH TO THE ARRAY THE VIEW AND THE DATA
 	items.push({
 		view: view,
 		data: values
 	});
 };
-	
+
 //ADD ALL THE ITEMS TO THE GRID
 $.fg.addGridItems(items);
 
@@ -148,6 +153,7 @@ Please refer to the Image Gallery Sample included in the project to see it in ac
 * itemBorderColor
 * itemBorderWidth
 * itemBorderRadius
+* overlay - boolean (default: true);
 * onItemClick - function; fire when an item from the grid is clicked
 
 **getItemWidth()** - returns the width of the Item Grid.
@@ -162,16 +168,16 @@ Please refer to the Image Gallery Sample included in the project to see it in ac
 * view - a view with the custom layout
 * data - the data we want available when an item is clicked
 
-**clearGrid()** - clears all the elements of the grid. 
+**clearGrid()** - clears all the elements of the grid.
 
 **setOnItemClick(function)** - set the event that will trigger once an item from the grid is clicked
 
-**openModal(url)** - opens an image with a "pop-up" effect. 
+**openModal(url)** - opens an image with a "pop-up" effect.
 
 ### Note for Android
 
-The widget uses anydensity = true and system units as dp (now default in the latest Titanium SDK) in the tiapp.xml. 
- 
+The widget uses anydensity = true and system units as dp (now default in the latest Titanium SDK) in the tiapp.xml.
+
  You can use something like this in your tiapp.xml:
 ```xml
 <property name="ti.ui.defaultunit" type="string">dp</property>
@@ -183,14 +189,14 @@ The widget uses anydensity = true and system units as dp (now default in the lat
         </manifest>
    </android>
 ```
-See the tiapp.xml in the sample project for more details. 
+See the tiapp.xml in the sample project for more details.
 
 To understand it better, please refer to the sample project included.
 
 ###License
 The MIT License (MIT)
 
-Copyright (c) 2014 Pablo Rodriguez Ruiz, [@pablorr18](http://twitter.com/pablorr18) 
+Copyright (c) 2014 Pablo Rodriguez Ruiz, [@pablorr18](http://twitter.com/pablorr18)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
