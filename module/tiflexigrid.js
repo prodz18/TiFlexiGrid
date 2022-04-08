@@ -49,7 +49,7 @@ var init = function(opts){
 	space = params.space || 5;
 	data = params.data || {};
 	
-	screenWidth = params.width || Ti.Platform.displayCaps.getPlatformWidth();
+	screenWidth = params.width || Ti.Platform.displayCaps.platformWidth;
     if (OS=='android') {
         screenWidth /= Ti.Platform.displayCaps.logicalDensityFactor;
     }
